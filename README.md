@@ -7,7 +7,7 @@ Vi ska nu börja med CDIO projected som Martin presenterade idag (Måndag). Men 
 ### Rösting
 
   Vilket versionhanterings system ska vi använda?
- [versionshantering](http://www.strawpoll.me/10044431)
+ <a href="http://www.strawpoll.me/10044431" target="_blank">versionshantering</a>
  
  Vilken version av ECMAscript ska vi använda?
  [Version av ecmascript](http://www.strawpoll.me/10044440)
