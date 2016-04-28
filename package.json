@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Zexuz/ABF/issues"
   },
-  "homepage": "https://github.com/Zexuz/ABF#readme"
+  "homepage": "https://github.com/Zexuz/ABF#readme",
+  "dependencies": {
+    "request-promise": "^3.0.0"
+  }
 }
