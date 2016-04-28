@@ -1,0 +1,22 @@
+{
+  "name": "abf",
+  "version": "1.0.0",
+  "description": "A website used to search jobs in Sweden",
+  "main": "app.js",
+  "bin": {
+    "abf": "app.js"
+  },
+  "scripts": {
+    "test": "'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zexuz/ABF.git"
+  },
+  "author": "Karlstad kommun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zexuz/ABF/issues"
+  },
+  "homepage": "https://github.com/Zexuz/ABF#readme"
+}
