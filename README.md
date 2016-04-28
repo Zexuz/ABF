@@ -12,7 +12,7 @@ Vi ska bygga en webbapp som ska använde Arbetsförmedlingens REST api.
 Det finns för tillfället två steg.
 
 Steg 1
-[http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?nyckelord=<MATCHNINGS-ORD>](http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?nyckelord=<MATCHNINGS-ORD>)
+[http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?nyckelord={MATCHNINGS-ORD}](http://api.arbetsformedlingen.se/af/v0/platsannonser/matchning?nyckelord={MATCHNINGS-ORD})
 
 Detta returnerar detta som tex.
 
@@ -46,7 +46,7 @@ Detta returnerar detta som tex.
 
  Steg 2 är
  
-[http://api.arbetsformedlingen.se/af/v0/platsannonser/<ANNONSID>](http://api.arbetsformedlingen.se/af/v0/platsannonser/<ANNONSID>)
+[http://api.arbetsformedlingen.se/af/v0/platsannonser/{ANNONSID}](http://api.arbetsformedlingen.se/af/v0/platsannonser/{ANNONSID})
 
 Detta returnerar detta som tex.
 
