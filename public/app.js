@@ -9,8 +9,12 @@ $(document).ready(function(){
     //jobbmanager.getJobb(12345, "buss");
 
     $("#search-text").on("keyup", function(ev){
-        $("p").remove();
-        $("h3").remove();
+
+        // Tar bort hela sammanfattningen
+        // Tidigare kod tog bara bort p och h3 elementen, lämnade ett tomt section-element.
+
+        $(".jobb").remove();
+
         var searchtext = ev.target.value;
         jobbmanager.getJobb(12345, searchtext);
     });

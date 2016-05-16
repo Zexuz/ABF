@@ -6,9 +6,8 @@ function JobbUI(jobbDataObject){
 }
 
 JobbUI.prototype.getSummaryDOM = function(){
-    var dom = document.createElement("div");
+    var dom = document.createElement("section");
     $(dom).addClass("jobb");
-    $(dom).addClass("summary");
 
     // jobb-presentationens titel
     var titel = document.createElement("h3");
@@ -30,4 +29,4 @@ JobbUI.prototype.getSummaryDOM = function(){
     $(dom).append(kommun);
 
     return dom;
-}
+};

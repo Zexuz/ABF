@@ -30,7 +30,7 @@ function JobbData(annonsid, onDataLoadedCallback){
 
         // kör callbacken
         me.onDataLoaded();
-    }
+    };
 
     this.update();
 }
@@ -38,7 +38,7 @@ function JobbData(annonsid, onDataLoadedCallback){
 JobbData.prototype.update = function(){
     this.api.getAnnonsData(this.annonsid, this._onGetAnnonsData);
     // och kanske andra saker som behöver göras vid update
-}
+};
 
 
 

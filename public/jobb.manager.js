@@ -41,7 +41,7 @@ JobbManager.prototype.getJobb = function (kommunId, nyckelord) {
     var guid = this._createGuid();
     this.latestGuid = guid;
 
-    this.api.getMatchningslista(kommunId, nyckelord,guid, this._getMatchningslistaCallback);
+    this.api.getMatchningslista(kommunId, nyckelord, guid, this._getMatchningslistaCallback);
 }
 
 
