@@ -6,6 +6,8 @@ Vi ska bygga en webbapp som ska använde Arbetsförmedlingens REST api.
 
 [Projekt dokumentation](https://docs.google.com/document/d/1ajSBKel41_Ol-9qY4CoZmjG68BN8C3Mjv97Ng3g2-Xc/edit)
 
+### Skisser
+[Skiss på sida 1](https://cloud.githubusercontent.com/assets/14992545/15284935/bb6e016e-1b54-11e6-9d9e-64b1b466e240.png)
   
 ### Planering
   Vi behöver antagligen mjukvarudesigna lite enligt Martins krav innan någon kod kan börja skrivas.
