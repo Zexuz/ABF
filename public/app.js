@@ -24,6 +24,42 @@ ABF.jobb.API = JobbAPI;
 ABF.jobb.UI = JobbUI;
 ABF.jobb.Manager = JobbManager;
 
+function getFullInfo(data, item){
+   var annonsData = data.data;
+    var annons = annonsData.annons;
+    console.log(annons);
+    item = document.createElement('div');
+    $.get("http://api.arbetsformedlingen.se/af/v0/platsannonser/"+annons.annonsid, function(data){
+        console.log("jobb");
+        console.log(data);
+
+        // rensar förgående utskruft
+        $("#jobblista").html('');
+
+        // sparar listan med API:ts sökresultat i egen variabel
+        var annons = data.platsannons;
+        console.log(annons);
+
+        // Skapar en tag som cointiner för yrket
+        //var item = document.createElement("div");
+        // om yrker ha lediga jobb, stoppa text i a-tagg, annats låt bli
+
+        var rubrikDOM = document.createElement("h3");
+        $(rubrikDOM).text(annons.annons.annonsrubrik);
+        var textDOM = document.createElement("p");
+        $(textDOM).text(annons.annons.annonstext);
+
+        // lägger till de nya taggarna till item
+        $(item).append(rubrikDOM);
+        $(item).append(textDOM);
+
+        // Lägger till taggen <p>Ledigt-jobb-titel</p> till den befitnliga taggen med id="jobblista"
+        $("#jobblista").append(item);
+
+    });
+
+}
+
 //Kod som inte används
 /*
 
