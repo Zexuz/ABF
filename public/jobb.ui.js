@@ -28,5 +28,13 @@ JobbUI.prototype.getSummaryDOM = function(){
     $(dom).append(desc);
     $(dom).append(kommun);
 
+    //vill vi göra såhär?
+    var data = this;
+    $(dom).click(function () {
+        console.log(data);
+        getFullInfo(data);
+    });
+    //$(dom).attr('onclick','getFullInfo(data)');
+
     return dom;
 };
