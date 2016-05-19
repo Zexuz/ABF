@@ -58,16 +58,15 @@ function isPositionClose(workLat, workLong, diameterMax, callback) {
         console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
         console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
         console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+
+        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
+        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
+        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
+        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
         console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
         if (getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude) <= diameterMax) {
             return callback(true)
         }
-
         callback(false);
 
     }, showError.bind(this));
@@ -79,10 +78,10 @@ var geocoder;
 function initGeocode() {
     geocoder = new google.maps.Geocoder();
 }
-
-function geocodeAddress(address,callback) {
+/*
+function geocodeAddress(address, callback) {
     alert(address);
-    geocoder.geocode({'address': address}, function(results, status) {
+    geocoder.geocode({'address': address}, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             console.log(results);
             console.log(results[0].formatted_address);
@@ -95,17 +94,54 @@ function geocodeAddress(address,callback) {
         }
     });
 }
+*/
+function findPlaceNewAPI(address, callback) {
+    $.ajax({
+        url: "http://www.mapquestapi.com/geocoding/v1/address?key=n3L3dC7uCvWVdL63841lo6yHkW34H049&location=" + address + ",Karlstad,Värmland",
+        jsonp: "callback",
+        dataType: "json",
+        success: function (response) {
+            isPositionClose(response.results[0].locations[0].latLng.lat, response.results[0].locations[0].latLng.lng, 50, function (isTrue) {
+                callback(isTrue);
+            });
+        }
+    });
+}
 
 /*
-Exempel på hur koden kan användas
+function findAllPlaces(locations, callback) {
+
+    var query = "";
+    for (var i = 0; i < locations.length; i++) {
+        query += "&location=" + locations[i];
+    }
+
+    $.ajax({
+        url: "https://www.mapquestapi.com/geocoding/v1/batch?key=n3L3dC7uCvWVdL63841lo6yHkW34H049" + query,
+        jsonp: "callback",
+        dataType: "json",
+        success: function (response) {
+            isPositionClose(response.results[0].locations[0].latLng.lat, response.results[0].locations[0].latLng.lng, 50, function (isTrue) {
+                callback(isTrue);
+            });
+        }
+    });
+}
+*/
+
+//findPlaceNewAPI("Hemvägen 3c, Karlstad,Sweden");
+
+
+/*
+ Exempel på hur koden kan användas
 
  isPositionClose(59.324244, 14.501477, 50, function (isTrue) {
-     console.log(isTrue);
-     if (isTrue) {
-         alert("nära")
-     } else {
-         alert("not close")
-     }
+ console.log(isTrue);
+ if (isTrue) {
+ alert("nära")
+ } else {
+ alert("not close")
+ }
  });
 
 
