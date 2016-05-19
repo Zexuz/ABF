@@ -24,21 +24,7 @@ function JobbData(annonsid, onDataLoadedCallback) {
         me.data = data;
 
         // unit-test av JobbUI
-        geocodeAddress(data.arbetsplats.besoksadress, function (isClose) {
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
-            console.log(isClose);
+        findPlaceNewAPI(data.arbetsplats.besoksadress, function (isClose) {
             if (!isClose) return;
 
             var ui = new ABF.jobb.UI(me.data);
