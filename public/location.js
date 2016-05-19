@@ -55,6 +55,15 @@ function showError(error) {
 function isPositionClose(workLat, workLong, diameterMax, callback) {
 
     getUserLocation(function (pos) {
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
+        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
         if (getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude) <= diameterMax) {
             return callback(true)
         }
@@ -64,6 +73,27 @@ function isPositionClose(workLat, workLong, diameterMax, callback) {
     }, showError.bind(this));
 
 
+}
+
+var geocoder;
+function initGeocode() {
+    geocoder = new google.maps.Geocoder();
+}
+
+function geocodeAddress(address,callback) {
+    alert(address);
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            console.log(results);
+            console.log(results[0].formatted_address);
+
+            isPositionClose(results[0].geometry.location.lat(), results[0].geometry.location.lng(), 50, function (isTrue) {
+                callback(isTrue);
+            });
+        } else {
+            console.log('Geocode was not successful for the following reason: ' + status);
+        }
+    });
 }
 
 /*
