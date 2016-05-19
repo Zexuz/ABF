@@ -8,6 +8,7 @@ $(document).ready(function () {
 
         // Tar bort hela sammanfattningen
         // Tidigare kod tog bara bort p och h3 elementen, lämnade ett tomt section-element.
+        // Nu tar den istället bort alla jobbsammanfattningar och deras "wrapper" element.
 
         $(".jobb").remove();
 

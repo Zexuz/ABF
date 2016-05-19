@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <title>Worksahop slumpa identiteter</title>
 
+    <!--CSS Resources-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!--JQuery CDN-->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <!--JS Resources-->
     <script src="jobb.api.js"></script>
     <script src="jobb.data.js"></script>
     <script src="jobb.ui.js"></script>
@@ -13,19 +19,13 @@
 </head>
 
 <body>
-    <div class="pagewrapper">
-
-        <header>
-            <h2>Lediga jobb</h2>
-        </header>
-
+    <aside id="meny">
         <nav id="search">
-            <input type="text" id="search-text" placeholder="ange yrke">
+            <input type="text" id="search-text" placeholder="Ange yrke">
             <input type="button" id="search-button" value="sök">
         </nav>
+    </aside>
 
-        <main id="jobblista"></main>
-
-    </div>
+    <main id="jobblista"></main>
 </body>
 </html>
