@@ -31,55 +31,55 @@ ABF.jobb.Manager = JobbManager;
 function getFullInfo(data, item) {
     var annonsData = data.data;
     var annons = annonsData.annons;
+
     console.log(annons);
+
     item = document.createElement('div');
+    $(item).addClass('jobb-wrapper');
+
     $.get("http://api.arbetsformedlingen.se/af/v0/platsannonser/" + annons.annonsid, function (data) {
         var jobblista = $("#jobblista");
         jobblista.html('');
 
         var annons = data.platsannons;
 
-        var rubrikDOM = document.createElement("h3");
-        $(rubrikDOM).text(annons.annons.annonsrubrik);
-
+        var rubrikDOM = document.createElement("h2");
+        $(rubrikDOM).attr('class', 'align-center').text(annons.annons.annonsrubrik);
 
         var textDOM = document.createElement("p");
-        $(textDOM).text(annons.annons.annonstext);
+        $(textDOM).attr({class: 'align-indent', id: 'annonstext'}).text(annons.annons.annonstext);
 
+        var infoDOM = document.createElement("div");
 
-        var vilkorDiv = document.createElement('div');
-        $(vilkorDiv).addClass('vilkor')
-            .append($(document.createElement("p")).addClass('varaktighet').text("Varaktighet: " + annons.villkor.varaktighet))
-            .append($(document.createElement("p")).addClass('arbetstid').text("Arbetstid: " + annons.villkor.arbetstid))
-            .append($(document.createElement("p")).addClass('lonetyp').text("Lönetyp: " + annons.villkor.lonetyp))
-            .append($(document.createElement("p")).addClass('loneform').text("Löneform: " + annons.villkor.loneform));
+        var villkorDiv = document.createElement('div');
+        $(villkorDiv).attr({id: 'villkor', class: 'align-indent'})
+            .append($(document.createElement("p")).attr('id', 'varaktighet').text("Varaktighet: " + annons.villkor.varaktighet))
+            .append($(document.createElement("p")).attr('id', 'arbetstid').text("Arbetstid: " + annons.villkor.arbetstid))
+            .append($(document.createElement("p")).attr('id', 'loetyp').text("Lönetyp: " + annons.villkor.lonetyp))
+            .append($(document.createElement("p")).attr('id', 'loneform').text("Löneform: " + annons.villkor.loneform));
 
         var ansokanDiv = document.createElement('div');
-        $(ansokanDiv).addClass('ansokan')
-            .append($(document.createElement("a")).addClass('webbplats').text("Webbplats: " + annons.ansokan.webbplats).attr('href', annons.ansokan.webbplats))
-            .append($(document.createElement("p")).addClass('sista-ansokningsdag').text("Sista ansökningsdag: " + annons.ansokan.sista_ansokningsdag))
-            .append($(document.createElement("p")).addClass('yrkesbenamning').text("Yrkesbenamning: " + annons.ansokan.yrkesbenamning));
+        $(ansokanDiv).attr({id: 'ansokan', class: 'align-indent'})
+            .append($(document.createElement("a")).attr('id', 'webbplats').text("Webbplats: " + annons.ansokan.webbplats).attr('href', annons.ansokan.webbplats))
+            .append($(document.createElement("p")).attr('id', 'sista-ansökningsdag').text("Sista ansökningsdag: " + annons.ansokan.sista_ansokningsdag))
+            .append($(document.createElement("p")).attr('id', 'yrkesbenämning').text("Yrkesbenamning: " + annons.ansokan.yrkesbenamning));
 
         var jobbInfo = document.createElement('div');
-        $(jobbInfo).addClass('jobbInfo')
-            .append($(document.createElement("p")).addClass('publiceraddatum').text("Publiceraddatum: " + annons.ansokan.publiceraddatum))
-            .append($(document.createElement("p")).addClass('antal-platser').text("Antal platser: " + annons.ansokan.antal_platser))
-            .append($(document.createElement("p")).addClass('referens').text("Referens: " + annons.ansokan.referens))
-            .append($(document.createElement("p")).addClass('ovrigt-om-ansokan').text("Övrigt: " + annons.ansokan.ovrigt_om_ansokan));
+        $(jobbInfo).attr({id: 'jobbInfo', class: 'align-indent'})
+            .append($(document.createElement("p")).attr('id', 'publiceringsdatum').text("Publiceraddatum: " + annons.ansokan.publiceraddatum))
+            .append($(document.createElement("p")).attr('id', 'antal-platser').text("Antal platser: " + annons.ansokan.antal_platser))
+            .append($(document.createElement("p")).attr('id', 'referens').text("Referens: " + annons.ansokan.referens))
+            .append($(document.createElement("p")).attr('id', 'ovrigt-om-ansokan').text("Övrigt: " + annons.ansokan.ovrigt_om_ansokan));
 
-
+        $(infoDOM).attr('id', 'info').append($(document.createElement("h3")).attr({class: 'align-center', id: 'info-header'}).text('Sammanfattad information'))
+            .append($(document.createElement('hr')))
+            .append([ansokanDiv, villkorDiv, jobbInfo]);
 
         // lägger till de nya taggarna till item
-
-        $(item).append(rubrikDOM)
-            .append(vilkorDiv)
-            .append(ansokanDiv)
-            .append(textDOM);
+        $(item).append([rubrikDOM, textDOM, infoDOM]);
 
         jobblista.append(item);
-
     });
-
 }
 
 //Kod som inte används

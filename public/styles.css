@@ -10,14 +10,13 @@ body {
     font-size: 12px;
 
     overflow: hidden;
-
-    background-color: ivory;
+background-color: ivory;
 }
 
 #meny {
     width: 250px;
     height: 100vh;
-    background-color: #cecece;
+    background-color: #272727;
 
     position: relative;
 }
@@ -66,6 +65,26 @@ body {
 
 .jobb{
     padding: 0px 5px;
+}
+
+.jobb-wrapper{
+    margin: 10px 5px;
+}
+
+#annonstext{
+    width: 95%;
+}
+
+#info-header{
+    margin-top: 25px;
+}
+
+.align-indent{
+    margin-left: 2.5%;
+}
+
+.align-center{
+    text-align: center;
 }
 
 .person {
