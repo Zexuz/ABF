@@ -18,8 +18,8 @@ function JobbData(annonsid, onDataLoadedCallback) {
 
     // Callback för när annonsdatan har laddats
     this._onGetAnnonsData = function (data) {
-        console.log("onGetAnnonsData");
-        console.log(data);
+        //console.log("onGetAnnonsData");
+        //console.log(data);
 
         me.data = data;
 

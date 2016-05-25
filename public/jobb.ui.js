@@ -31,7 +31,6 @@ JobbUI.prototype.getSummaryDOM = function(){
     //vill vi göra såhär?
     var data = this;
     $(dom).click(function () {
-        console.log(data);
         getFullInfo(data);
     });
     //$(dom).attr('onclick','getFullInfo(data)');
