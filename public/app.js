@@ -32,7 +32,7 @@ function getFullInfo(data, item) {
     var annonsData = data.data;
     var annons = annonsData.annons;
 
-    console.log(annons);
+    console.log(data);
 
     item = document.createElement('div');
     $(item).addClass('jobb-wrapper');

@@ -55,15 +55,7 @@ function showError(error) {
 function isPositionClose(workLat, workLong, diameterMax, callback) {
 
     getUserLocation(function (pos) {
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude));
-
-        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
-        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
-        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
-        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
-        console.log(workLat, workLong, pos.coords.latitude, pos.coords.longitude);
+        console.log(getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude) <= diameterMax);
         if (getDistanceFromLatLonInKm(workLat, workLong, pos.coords.latitude, pos.coords.longitude) <= diameterMax) {
             return callback(true)
         }

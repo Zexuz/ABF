@@ -16,8 +16,8 @@ JobbAPI.prototype.getMatchningslista = function (kommunId, nyckelord, options, c
     //var me = this;
 
     $.get(this.baseUrl + "matchning?nyckelord=" + nyckelord, function (data) {
-        console.log("getMatchningslista");
-        console.log(data);
+        // console.log("getMatchningslista");
+        // console.log(data);
 
         // anropar callbacken med returnerad data
         callback(data.matchningslista.matchningdata,options);
@@ -27,8 +27,8 @@ JobbAPI.prototype.getMatchningslista = function (kommunId, nyckelord, options, c
 
 JobbAPI.prototype.getAnnonsData = function (annonsId, callback, callBackSource) {
     $.get(this.baseUrl + annonsId, function (data) {
-        console.log("getAnnonsData");
-        console.log(data);
+        //  console.log("getAnnonsData");
+        // console.log(data);
 
         // anropar callback
         callback.call(callBackSource, data.platsannons);
